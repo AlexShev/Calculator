@@ -28,6 +28,17 @@ namespace tempForms
             buttonM.Enabled = false;
         }
 
+        private void CloseMemory()
+        {
+            panel1.Height = 0;
+            
+            txtDesplay.Enabled = true;
+            
+            txtDesplay.Visible = true;
+            
+            lblOperetion.Enabled = true;
+        }
+
         private void numbersOnly(object sender, EventArgs e)
         {
             Button button = (Button)sender;
@@ -346,12 +357,12 @@ namespace tempForms
         {
             userControl1.buttonMMinus.Click += (sender, e) =>
             {
-                userControl1.label_1.Text = (double.Parse(userControl1.label_1.Text) - double.Parse(txtDesplay.Text)).ToString();
+                userControl1.label_1.Text = (decimal.Parse(userControl1.label_1.Text) - decimal.Parse(txtDesplay.Text)).ToString();
             };
 
             userControl1.buttonMPlus.Click += (sender, e) =>
             {
-                userControl1.label_1.Text = (double.Parse(userControl1.label_1.Text) + double.Parse(txtDesplay.Text)).ToString();
+                userControl1.label_1.Text = (decimal.Parse(userControl1.label_1.Text) + decimal.Parse(txtDesplay.Text)).ToString();
             };
 
             userControl1.buttonMC.Click += (sender, e) =>
@@ -365,6 +376,8 @@ namespace tempForms
                     buttonMC.Enabled = false;
 
                     buttonM.Enabled = false;
+
+                    CloseMemory();
                 }
             };
 
