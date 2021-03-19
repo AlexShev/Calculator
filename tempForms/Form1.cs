@@ -137,6 +137,8 @@ namespace tempForms
 
                 _tochange = true;
 
+                _isNew = false;
+
                 _operetion = operetion;
 
                 lblOperetion.Text = $"{_calculator.FirstNum} {_operetion}";
@@ -174,7 +176,7 @@ namespace tempForms
 
             _isNew = true;
 
-            Calculete();
+            Calculate();
         }
 
         private void buttonDiv_Click(object sender, EventArgs e)
@@ -197,7 +199,7 @@ namespace tempForms
             BinaryOperathionLogic("+");
         }
 
-        private void Calculete()
+        private void Calculate()
         {
             if (!_calculator.ThereIsSecond)
             {
@@ -386,12 +388,10 @@ namespace tempForms
                 txtDesplay.Text = userControl1.label_1.Text;
 
                 _tochange = true;
-                panel1.Height = 0;
-                txtDesplay.Enabled = true;
-                txtDesplay.Visible = true;
-                lblOperetion.Enabled = true;
+                
+                CloseMemory();
+                
                 lblOperetion.Text = string.Empty;
-                _calculator.ClearFirst();
             };
 
             userControl1.label_1.Click += (sender, e) =>
@@ -508,7 +508,14 @@ namespace tempForms
 
             lblOperetion.Text = string.Empty;
 
-            _calculator.ClearFirst();
+            if (_calculator.IsFirst)
+            {
+                _calculator.ClearFirst();
+            }
+            else
+            {
+                _calculator.ClearSecond();
+            }
         }
     }
 }

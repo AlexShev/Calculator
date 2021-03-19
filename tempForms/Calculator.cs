@@ -6,12 +6,15 @@ namespace tempForms
 {
     class Calculator
     {
+        //первый операнд
         private double _first = 0;
+        //второй операнд
         private double _second = 0;
-
+        //существует ли первый операнд
         public bool ThereIsFirst { get; private set; } = false;
+        //существует ли второй операнд
         public bool ThereIsSecond { get; private set; } = false;
-
+        
         public double First
         {
             get => _first;
@@ -33,9 +36,9 @@ namespace tempForms
                 ThereIsSecond = true;
             }
         }
-
+        //переменная, кот. отвечает за то, какой операнд (первый или второй)
         public bool IsFirst { get; set; } = true;
-
+        //для графического представления
         public string FirstNum { get; private set; } = string.Empty;
         public string SecondNum { get; private set; } = string.Empty;
         public string Result { get; private set; } = string.Empty;
